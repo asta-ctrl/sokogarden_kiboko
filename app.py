@@ -146,14 +146,12 @@ def mpesa_payment():
             # Get response as Dictionary
             data = response.json()
             # Retrieve the Provide Token
-            # Token allows you to proceed with the transaction
-            access_token = "Bearer" + ' ' + data['access_token']
 
             #  GETTING THE PASSWORD
             timestamp = datetime.datetime.today().strftime('%Y%m%d%H%M%S')  # Current Time
             passkey = 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919'  # Passkey(Safaricom Provided)
             business_short_code = "174379"  # Test Paybile (Safaricom Provided)
-            # Combine above 3 Strings to get data variable
+            # Combine above 3 Strings to get data variableg
             data = business_short_code + passkey + timestamp
             # Encode to Base64
             encoded = base64.b64encode(data.encode())
