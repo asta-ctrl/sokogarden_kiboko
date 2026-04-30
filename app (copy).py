@@ -17,7 +17,7 @@ def signup():
     phone = request.form['phone']
      
     #connecting to the database
-    connection =pymysql.connect(host='mysql-iankiboko.alwaysdata.net',user='iankiboko',password='modcom2026',database ='iankiboko_dailyyourghurts')
+    connection =pymysql.connect(host='localhost',user='root',password='',database ='dailyyoughurts_kiboko')
 
     #initializing the connection
     cursor = connection.cursor()
@@ -42,7 +42,7 @@ def signin():
      username = request.form['username']
      password = request.form['password']
 
-     connection =pymysql.connect(host='mysql-iankiboko.alwaysdata.net',user='iankiboko',password='modcom2026',database ='iankiboko_dailyyourghurts')
+     connection =pymysql.connect(host='localhost',user='root',password='',database ='dailyyoughurts_kiboko')
      
      cursor = connection.cursor(pymysql.cursors.DictCursor)
      
@@ -84,7 +84,7 @@ def add_product():
 
 
      #Establishing connection to the database
-     connection =pymysql.connect(host='mysql-iankiboko.alwaysdata.net',user='iankiboko',password='modcom2026',database ='iankiboko_dailyyourghurts')
+     connection =pymysql.connect(host='localhost',user='root',password='',database ='dailyyoughurts_kiboko')
      
      #Initializing the connection
      cursor = connection.cursor()
@@ -109,7 +109,7 @@ def add_product():
 @app.route('/api/get_product_details', methods=['GET'])
 def get_product_details():
      #we are connecting to the database
-     connection =pymysql.connect(host='mysql-iankiboko.alwaysdata.net',user='iankiboko',password='modcom2026',database ='iankiboko_dailyyourghurts')
+     connection =pymysql.connect(host='localhost',user='root',password='',database ='dailyyoughurts_kiboko')
      #creating cursor object to execute sql querries
 
      cursor = connection.cursor(pymysql.cursors.DictCursor)
@@ -187,8 +187,8 @@ def mpesa_payment():
             # Give a Response
             return jsonify({"message": "An MPESA Prompt has been sent to Your Phone, Please Check & Complete Payment"})
       
-#if __name__ == '__main__':
- #app.run(debug=True)
+if __name__ == '__main__':
+     app.run(debug=True)
 
    
 
